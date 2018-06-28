@@ -46,7 +46,8 @@ gulp.task('browserSync', ['default'], () => {
 gulp.task('watch', ['browserSync'], () => {
   gulp.watch(paths.styles.src, {mode: 'poll'}, ['css']);
   gulp.watch(paths.scripts.src, {mode: 'poll'}, ['js']);
-  gulp.watch(paths.markups.src, {mode: 'poll'}, ['markups', 'htmls']);
+  gulp.watch(paths.markups.src, {mode: 'poll'}, ['markups']);
+  gulp.watch(paths.htmls.src, {mode: 'poll'}, ['htmls']);
 });
 
 gulp.task('min', ['css-min', 'js-min']);
