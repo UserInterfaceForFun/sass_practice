@@ -20,6 +20,10 @@ const paths = {
   htmls: {
     src: 'src/views/**/*.html',
     dest: 'dist/',
+  },
+  assets: {
+    src: 'src/assets/**/*.{png,jpg,jpeg,svg,gif}',
+    dest: 'dist/assets/',
   }
 };
 
@@ -27,7 +31,7 @@ const configAutoprefixer = {
   browsers: ['last 2 versions']
 };
 
-gulp.task('default', ['css', 'js', 'markups', 'htmls']);
+gulp.task('default', ['css', 'js', 'markups', 'htmls', 'assets']);
 
 gulp.task('browserSync', ['default'], () => {
   browserSync.init({
@@ -120,3 +124,12 @@ gulp.task('htmls', () => {
     .pipe(gulp.dest(paths.htmls.dest))
     .pipe(browserSync.stream())
 });
+
+gulp.task('assets', () => {
+  gulp.src(paths.assets.src)
+    .pipe($.plumber())
+    .pipe($.imagemin())
+    .pipe(gulp.dest(paths.assets.dest))
+    .pipe(browserSync.stream())
+});
+
