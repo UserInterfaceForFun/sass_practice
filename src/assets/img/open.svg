@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="527px" height="533px" viewBox="0 0 527 533" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>open</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="56.8025708%" y1="100%" x2="56.8025708%" y2="23.6050485%" id="linearGradient-1">
+            <stop stop-color="#C9C9C9" offset="0%"></stop>
+            <stop stop-color="#999999" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="open">
+            <g id="Group" transform="translate(89.000000, 187.000000)">
+                <ellipse id="Oval" fill="#999999" cx="33" cy="33.3837209" rx="33" ry="33.3837209"></ellipse>
+                <ellipse id="Oval-Copy" fill="#999999" cx="328" cy="33.3837209" rx="33" ry="33.3837209"></ellipse>
+                <path d="M7.79204922,162.524737 L353.871387,162.524737 C356.210018,187.046499 356.210018,202.524849 353.871387,208.959785 C325.099389,288.128308 261.170142,312 180.831718,312 C101.545622,312 36.8537769,286.067883 7.79204922,208.959785 C5.14136734,201.926857 5.14136734,186.448508 7.79204922,162.524737 Z" id="Path-2" fill="url(#linearGradient-1)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

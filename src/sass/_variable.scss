@@ -1,0 +1,30 @@
+// colors
+$color--secondary: #FC7519;
+$color--text: #333;
+$color--grey: #999;
+$color--muted: #ccc;
+$color--bg: #edeef0;
+
+// gradients
+$gradient--green: linear-gradient(#67C629, #62B52C);
+
+// background setting
+@mixin bgSetting($size, $position,$repeat) {
+  background-size: $size;
+  background-position: $position;
+  background-repeat: $repeat;
+  @content;
+}
+
+// images
+$member--default: url('../assets/img/bear.png');
+
+// fonts
+$ff--noto: 'Noto Sans';
+
+//font-size
+$fs--normal: 1.4rem;
+$fs--title2: 2rem;
+$fs--title3: 1.8rem;
+$fs--title5: 1.6rem;
+$fs--xs: 1.2rem;

@@ -1,0 +1,73 @@
+.full-page{
+  height:100vh;
+  background: #eaeaea;
+}
+$toggle-size: 50px;
+$toggle-padding: $toggle-size / 10;
+$toggle-width: $toggle-size * 2.5;
+$toggle-transition: 0.5s ease-in-out;
+label.toggle-container{
+  display: block;
+  width: $toggle-width;
+  height: $toggle-size + $toggle-padding * 2;
+  border-radius: $toggle-size;
+  position: relative;
+  background: linear-gradient(bottom, #bbb, #ccc);
+  cursor: pointer;
+  overflow: hidden;
+}
+.toggle-inner{
+  height: 100%;
+  background: linear-gradient(left,#26bec9,#65c1dd);
+  opacity: 0;
+  transition: $toggle-transition;
+}
+.toggle{
+  width:$toggle-size;
+  height:$toggle-size;
+  border-radius:50%;
+  background: linear-gradient(45deg, #e8e8e8, #fcfcfc);
+  position: absolute;
+  left:$toggle-padding;
+  top:$toggle-padding;
+  box-shadow: 0 $toggle-size / 10 $toggle-size / 10 rgba(0, 0, 0, 0.2);
+  transition: $toggle-transition;
+  overflow: hidden;
+  &-bg, &-close, &-open{
+    width:100%;
+    height:100%;
+    transition: $toggle-transition;
+  }
+  &-close, &-open{
+    position: absolute;
+  }
+  &-close{
+    background-image: url(../assets/img/close.svg);
+    @include bgSetting($toggle-size * 0.6, left, no-repeat);
+    transform-origin: 100%;
+  }
+  &-open{
+    background-image: url(../assets/img/open.svg);
+    @include bgSetting($toggle-size * 0.6, right, no-repeat);
+    transform: rotateY(180deg);
+    transform-origin: 0%;
+  }
+}
+label.toggle-container input{
+  display: none;
+}
+label.toggle-container input:checked{
+  & ~ .toggle {
+    left: $toggle-width - $toggle-size - $toggle-padding;
+    background: linear-gradient(-45deg, #e8e8e8, #fcfcfc);
+    .toggle-open{
+      transform:rotateY(360deg);
+    }
+    .toggle-close{
+      transform:rotateY(180deg);
+    }
+  }
+  & ~ .toggle-inner{
+    opacity: 1;
+  }
+}

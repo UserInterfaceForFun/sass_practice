@@ -1,0 +1,136 @@
+body{
+  height: 100vh;
+  background-color: #1C192E;
+  padding:20px;
+}
+// card color
+$c--blue: #CDDBED;
+$c--purple: #553860;
+$c--red: #A5435D;
+$c--orange: #F18264;
+$c--yellow: #FEE177;
+// card layout
+$card-top: 80px;
+$card-left: 20px;
+$card-radius: 10px;
+$card-padding: 20px;
+.card-wrap{
+  background-color: $c--blue;
+  padding: $card-padding;
+  position: relative;
+  max-width:375px;
+  margin:0 auto;
+  height: 100%;
+  border-radius: $card-radius;
+  overflow: hidden;
+}
+.card{
+  width:100%;
+  height:100%;
+  padding: $card-padding;
+  border-radius: $card-radius;
+  position: absolute;
+  cursor: pointer;
+  transition: .3s;
+  &:active{
+    background-color: #fff;
+  }
+  h2{
+    text-transform: uppercase; 
+    display: inline-block;
+    margin:0;
+    vertical-align: middle;
+  }
+  &-purple, input:checked + &-purple{
+    background: $c--purple;
+    top:$card-top;
+    left:$card-left;
+    .bar{
+      background-color: $c--orange;
+    }
+    h2{
+      color:$c--orange;
+    }
+  }
+  &-red, input:checked + &-red{
+    background: $c--red;
+    top:$card-top * 2;
+    left:$card-left * 2;
+    .bar{
+      background-color: $c--yellow;
+    }
+    h2{
+      color:$c--yellow;
+    }
+  }
+  &-orange, input:checked + &-orange{
+    background: $c--orange;
+    top:$card-top * 3;
+    left:$card-left * 3;
+    .bar{
+      background-color: $c--purple;
+    }
+    h2{
+      color:$c--purple;
+    }
+  }
+  &-yellow, input:checked + &-yellow{
+    background: $c--yellow;
+    top:$card-top * 4;
+    left:$card-left * 4;
+    .bar{
+      background-color: $c--red;
+    }
+    h2{
+      color:$c--red;
+    }
+  }
+}
+input[type=radio]{
+  display: none;  
+}
+input:checked{
+  & + .card .burger{
+    display: inline-block;
+  }
+  &  + .card {
+    cursor: default;
+    top:0;
+    left:0;
+    z-index:2;
+  }
+}
+.bar{
+  height:4px;
+  border-radius: 4px;
+}
+.burger{
+  width:30px;
+  display: none;
+  vertical-align: middle;
+  margin-right:20px;
+  cursor: pointer;
+  .bar{
+    margin-bottom:6px;
+  }
+}
+.close {
+  width:30px;
+  height:30px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  .bar{
+    background-color: #7197AF;
+    position: absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    &:first-child{
+      transform: rotateZ(45deg);
+    }
+    &:last-child{
+      transform: rotateZ(-45deg);
+    }
+  }
+}
