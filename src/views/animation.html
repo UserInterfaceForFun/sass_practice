@@ -5,25 +5,28 @@
 	<title>Colorful Cards</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/page_card.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
 	<script>
-		// 先放棄用原生js寫 xD
-		// window.onload = function(){
-		// 	var card = document.getElementsByClassName('card');
-		// 	var closeBtn = document.getElementsByClassName('close');
+		// 原生js
+		window.onload = function(){
+			var card = document.getElementsByClassName('card-radio');
+			var closeBtn = document.getElementsByClassName('close');
 			
-		// 	if(card){
-		// 		card[0].addEventListener('click', function(){
-		// 			closeBtn.setAttribute('htmlFor', cardId);
-		// 		}, false);
-		// 	}
-		// }
-		$(function(){
-			$('label input').on('click', function(){
-				var cardId = $(this).attr('id') ;
-				$('label.close').attr('for',cardId);
-			});
-		});
+			for(var i = 0; i < card.length; i++){
+				card[i].addEventListener('click', function(){
+					var cardId = this.getAttribute('id');
+					closeBtn[0].setAttribute('for', cardId); 
+				}, false);
+			}
+		}
+		
+		// jQuery
+		// $(function(){
+		// 	$('label input').on('click', function(){
+		// 		var cardId = $(this).attr('id') ;
+		// 		$('label.close').attr('for',cardId);
+		// 	});
+		// });
 	</script>
 </head>
 <body>
@@ -33,7 +36,7 @@
 			<div class="bar"></div>
 		</label>
 		<label>
-			<input type="radio" name="card" id="purple">
+			<input type="radio" name="card" id="purple" class="card-radio">
 			<div class="card card-purple">
 				<label class="burger">
 					<input type="radio" name="card">
@@ -45,7 +48,7 @@
 			</div>
 		</label>
 		<label>
-			<input type="radio" name="card" id="red">
+			<input type="radio" name="card" id="red" class="card-radio">
 			<div class="card card-red">
 				<label class="burger">
 					<input type="radio" name="card">
@@ -57,7 +60,7 @@
 			</div>
 		</label>
 		<label>
-			<input type="radio" name="card" id="orange">
+			<input type="radio" name="card" id="orange" class="card-radio">
 			<div class="card card-orange">
 				<label class="burger">
 					<input type="radio" name="card">
@@ -69,7 +72,7 @@
 			</div>
 		</label>
 		<label>
-			<input type="radio" name="card" id="yellow" checked>
+			<input type="radio" name="card" id="yellow" class="card-radio" checked>
 			<div class="card card-yellow">
 				<label class="burger">
 					<input type="radio" name="card">
