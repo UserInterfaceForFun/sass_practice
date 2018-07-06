@@ -32,6 +32,10 @@ $card-padding: 20px;
   position: absolute;
   cursor: pointer;
   transition: .3s;
+  &:hover{
+    transform: translateX(-5px) translateY(-10px);
+    box-shadow:0 0 10px 3px rgba(0,0,0,0.1);
+  }
   &:active{
     background-color: #fff;
   }
@@ -98,6 +102,9 @@ input:checked{
     top:0;
     left:0;
     z-index:2;
+  }
+  &  + .card:hover {
+    transform: none;
   }
 }
 .bar{

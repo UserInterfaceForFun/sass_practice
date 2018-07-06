@@ -9,13 +9,13 @@
 	<script>
 		// 原生js
 		window.onload = function(){
-			var card = document.getElementsByClassName('card-radio');
-			var closeBtn = document.getElementsByClassName('close');
+			var cards = document.querySelectorAll('.card-radio');
+			var closeBtn = document.querySelectorAll('.close');
 			
-			for(var i = 0; i < card.length; i++){
-				card[i].addEventListener('click', function(){
+			for(var i = 0; i < cards.length; i++){
+				cards[i].addEventListener('click', function(){
 					var cardId = this.getAttribute('id');
-					closeBtn[0].setAttribute('for', cardId); 
+					closeBtn[0].setAttribute('for', cardId);
 				}, false);
 			}
 		}
