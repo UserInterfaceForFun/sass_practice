@@ -14,6 +14,7 @@ $card-top: 80px;
 $card-left: 20px;
 $card-radius: 10px;
 $card-padding: 20px;
+$card-transition: .3s ease-in-out;
 .card-wrap{
   background-color: $c--blue;
   padding: $card-padding;
@@ -31,13 +32,16 @@ $card-padding: 20px;
   border-radius: $card-radius;
   position: absolute;
   cursor: pointer;
-  transition: .3s;
-  &:hover{
-    transform: translateX(-5px) translateY(-10px);
-    box-shadow:0 0 10px 3px rgba(0,0,0,0.1);
-  }
+  transition: $card-transition;
   &:active{
     background-color: #fff;
+  }
+  &.slider-right{
+    left:100%;
+  }
+  &.slider-top{
+    top:0;
+    left:0
   }
   h2{
     text-transform: uppercase; 
@@ -101,10 +105,6 @@ input:checked{
     cursor: default;
     top:0;
     left:0;
-    z-index:2;
-  }
-  &  + .card:hover {
-    transform: none;
   }
 }
 .bar{
@@ -127,6 +127,7 @@ input:checked{
   display: inline-block;
   position: relative;
   cursor: pointer;
+  transition: $card-transition;
   .bar{
     background-color: #7197AF;
     position: absolute;
@@ -139,5 +140,9 @@ input:checked{
     &:last-child{
       transform: rotateZ(-45deg);
     }
+  }
+  &.slider-down{
+    transform: rotateZ(90deg) translateY(15px);
+    transform-origin: left bottom;
   }
 }

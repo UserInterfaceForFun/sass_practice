@@ -5,39 +5,52 @@
 	<title>Colorful Cards</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/page_card.css">
-	<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script>
 		// 原生js
 		window.onload = function(){
-			var cards = document.querySelectorAll('.card-radio');
+			"use strict";
+			var cardRadios = document.querySelectorAll('.card-radio');
 			var closeBtn = document.querySelectorAll('.close');
+			var burgerBtns = document.querySelectorAll('.burger');
 			
-			for(var i = 0; i < cards.length; i++){
-				cards[i].addEventListener('click', function(){
+			cardRadios.forEach(function(cardRadio){
+				cardRadio.addEventListener('click', function(){
 					var cardId = this.getAttribute('id');
+
 					closeBtn[0].setAttribute('for', cardId);
+					closeBtn[0].classList.add('slider-down');
 				}, false);
-			}
+			});
+
+			burgerBtns.forEach(function(burgerBtn){
+				burgerBtn.addEventListener('click', function(){
+					closeBtn[0].classList.remove('slider-down');
+				}, false);
+			});
 		}
 		
-		// jQuery
-		// $(function(){
-		// 	$('label input').on('click', function(){
-		// 		var cardId = $(this).attr('id') ;
-		// 		$('label.close').attr('for',cardId);
-		// 	});
-		// });
+		// 先暫時偷用一下 jQuery XDD
+		$(function(){
+			$('.card-radio').on('click', function(){
+				$(this).parent().nextAll('label').find('.card').addClass('slider-right');
+				$(this).parent().prevAll('label').find('.card').addClass('slider-top');
+			});
+			$('.burger').on('click', function(){
+				$('.card').removeClass('slider-right').removeClass('slider-top');
+			});
+		});
 	</script>
 </head>
 <body>
 	<div class="card-wrap">
-		<label class="close" for="yellow">
+		<label class="close slider-down" for="yellow">
 			<div class="bar"></div>
 			<div class="bar"></div>
 		</label>
 		<label>
 			<input type="radio" name="card" id="purple" class="card-radio">
-			<div class="card card-purple">
+			<div class="card card-purple slider-top">
 				<label class="burger">
 					<input type="radio" name="card">
 					<div class="bar"></div>
@@ -49,7 +62,7 @@
 		</label>
 		<label>
 			<input type="radio" name="card" id="red" class="card-radio">
-			<div class="card card-red">
+			<div class="card card-red slider-top">
 				<label class="burger">
 					<input type="radio" name="card">
 					<div class="bar"></div>
@@ -61,7 +74,7 @@
 		</label>
 		<label>
 			<input type="radio" name="card" id="orange" class="card-radio">
-			<div class="card card-orange">
+			<div class="card card-orange slider-top">
 				<label class="burger">
 					<input type="radio" name="card">
 					<div class="bar"></div>
