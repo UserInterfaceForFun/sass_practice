@@ -21,6 +21,7 @@ label.toggle-container{
   background: linear-gradient(left,#26bec9,#65c1dd);
   opacity: 0;
   transition: $toggle-transition;
+  border-radius: $toggle-size;
 }
 .toggle{
   width:$toggle-size;
