@@ -36,10 +36,10 @@ $card-transition: .3s ease-in-out;
   &:active{
     background-color: #fff;
   }
-  &.slider-right{
+  &.slide-right{
     left:100%;
   }
-  &.slider-top{
+  &.slide-top{
     top:0;
     left:0
   }
@@ -141,8 +141,12 @@ input:checked{
       transform: rotateZ(-45deg);
     }
   }
-  &.slider-down{
+  &.slide-down{
     transform: rotateZ(90deg) translateY(15px);
     transform-origin: left bottom;
   }
+}
+
+label.active ~ label .card{
+    left:100%;
 }
