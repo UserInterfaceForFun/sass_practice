@@ -25,6 +25,32 @@ $card-transition: .3s ease-in-out;
   border-radius: $card-radius;
   overflow: hidden;
 }
+
+label.slider-down ~ label {
+  .card {
+    top: 0;
+    left: 0;
+  }
+}
+
+label.is-active ~ label {
+  .card {
+    left:100%;
+    &-purple {
+      top:$card-top * 1;
+    }
+    &-red {
+      top:$card-top * 2;
+    }
+    &-orange {
+      top:$card-top * 3;
+    }
+    &-yellow {
+      top:$card-top * 4;
+    }
+  }
+}
+
 .card{
   width:100%;
   height:100%;
@@ -36,15 +62,8 @@ $card-transition: .3s ease-in-out;
   &:active{
     background-color: #fff;
   }
-  &.slider-right{
-    left:100%;
-  }
-  &.slider-top{
-    top:0;
-    left:0
-  }
   h2{
-    text-transform: uppercase; 
+    text-transform: uppercase;
     display: inline-block;
     margin:0;
     vertical-align: middle;
@@ -95,7 +114,7 @@ $card-transition: .3s ease-in-out;
   }
 }
 input[type=radio]{
-  display: none;  
+  display: none;
 }
 input:checked{
   & + .card .burger{

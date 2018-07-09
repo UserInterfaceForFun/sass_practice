@@ -10,38 +10,23 @@
 			"use strict";
 			var cardRadios = document.querySelectorAll('.card-radio');
 			var cards = document.querySelectorAll('.card');
-			var closeBtn = document.querySelectorAll('.close');
+			var closeBtn = document.querySelector('.close');
 			var burgerBtns = document.querySelectorAll('.burger');
-			
-			cardRadios.forEach(function(cardRadio, index, cardRadioList){
+			var activeCard;
+
+			cardRadios.forEach(function(cardRadio){
 				cardRadio.addEventListener('click', function(){
-					var cardId = this.getAttribute('id');
-
-					closeBtn[0].setAttribute('for', cardId);
-					closeBtn[0].classList.add('slider-down');
-					
-					for(var j = 0; j < index; j++){
-						var prevRadios = cardRadioList[j];
-						var prevCards = prevRadios.parentElement.lastElementChild;
-						prevCards.classList.add('slider-top');
-					}
-
-					for(var k = 1; k < cardRadioList.length - index; k++){
-						var nextRadios = cardRadioList[index + k];
-						var nextCards = nextRadios.parentElement.lastElementChild;
-						nextCards.classList.add('slider-right');
-					}
-
+					closeBtn.setAttribute('for', this.id);
+					closeBtn.classList.add('slider-down');
+					activeCard = cardRadio.parentNode;
+					activeCard.classList.add('is-active');
 				}, false);
 			});
 
 			burgerBtns.forEach(function(burgerBtn){
 				burgerBtn.addEventListener('click', function(){
-					closeBtn[0].classList.remove('slider-down');
-
-					cards.forEach(function(card){
-						card.classList.remove('slider-right', 'slider-top');
-					});
+					closeBtn.classList.remove('slider-down');
+					activeCard.classList.remove('is-active');
 				}, false);
 			});
 		}
@@ -55,7 +40,7 @@
 		</label>
 		<label>
 			<input type="radio" name="card" id="purple" class="card-radio">
-			<div class="card card-purple slider-top">
+			<div class="card card-purple">
 				<label class="burger">
 					<input type="radio" name="card">
 					<div class="bar"></div>
@@ -67,7 +52,7 @@
 		</label>
 		<label>
 			<input type="radio" name="card" id="red" class="card-radio">
-			<div class="card card-red slider-top">
+			<div class="card card-red">
 				<label class="burger">
 					<input type="radio" name="card">
 					<div class="bar"></div>
@@ -79,7 +64,7 @@
 		</label>
 		<label>
 			<input type="radio" name="card" id="orange" class="card-radio">
-			<div class="card card-orange slider-top">
+			<div class="card card-orange">
 				<label class="burger">
 					<input type="radio" name="card">
 					<div class="bar"></div>
@@ -102,6 +87,6 @@
 			</div>
 		</label>
 	</div>
-	
+
 </body>
 </html>
