@@ -7,39 +7,45 @@
 	<link rel="stylesheet" href="css/page_card.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script>
-		// 原生js
 		window.onload = function(){
 			"use strict";
 			var cardRadios = document.querySelectorAll('.card-radio');
+			var cards = document.querySelectorAll('.card');
 			var closeBtn = document.querySelectorAll('.close');
 			var burgerBtns = document.querySelectorAll('.burger');
 			
-			cardRadios.forEach(function(cardRadio){
+			cardRadios.forEach(function(cardRadio, index, cardRadioList){
 				cardRadio.addEventListener('click', function(){
 					var cardId = this.getAttribute('id');
 
 					closeBtn[0].setAttribute('for', cardId);
 					closeBtn[0].classList.add('slider-down');
+					
+					for(var j = 0; j < index; j++){
+						var prevRadios = cardRadioList[j];
+						var prevCards = prevRadios.parentElement.lastElementChild;
+						prevCards.classList.add('slider-top');
+					}
+
+					for(var k = 1; k < cardRadioList.length - index; k++){
+						var nextRadios = cardRadioList[index + k];
+						var nextCards = nextRadios.parentElement.lastElementChild;
+						nextCards.classList.add('slider-right');
+					}
+
 				}, false);
 			});
 
 			burgerBtns.forEach(function(burgerBtn){
 				burgerBtn.addEventListener('click', function(){
 					closeBtn[0].classList.remove('slider-down');
+
+					cards.forEach(function(card){
+						card.classList.remove('slider-right', 'slider-top');
+					});
 				}, false);
 			});
 		}
-		
-		// 先暫時偷用一下 jQuery XDD
-		$(function(){
-			$('.card-radio').on('click', function(){
-				$(this).parent().nextAll('label').find('.card').addClass('slider-right');
-				$(this).parent().prevAll('label').find('.card').addClass('slider-top');
-			});
-			$('.burger').on('click', function(){
-				$('.card').removeClass('slider-right').removeClass('slider-top');
-			});
-		});
 	</script>
 </head>
 <body>
