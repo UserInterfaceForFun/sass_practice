@@ -1,5 +1,17 @@
 // vendors
 @import 'vendor/normalize.css/normalize';
+@import 'vendor/bootstrap4/bootstrap-grid';
+@import 'vendor/bootstrap4/mixins/hover';
+@import 'vendor/bootstrap4/mixins/border-radius';
+@import 'vendor/bootstrap4/mixins/lists';
+@import 'vendor/bootstrap4/mixins/text-truncate';
+@import 'vendor/bootstrap4/mixins/text-emphasis';
+@import 'vendor/bootstrap4/mixins/text-hide';
+@import 'vendor/bootstrap4/reboot';
+@import 'vendor/bootstrap4/navbar';
+@import 'vendor/bootstrap4/type';
+@import 'vendor/bootstrap4/utilities/text';
+@import 'vendor/bootstrap4/utilities/position';
 
 // variables
 @import 'variable';
