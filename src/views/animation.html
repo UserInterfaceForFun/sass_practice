@@ -6,101 +6,84 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/page_card.css">
 	<script>
-		window.onload = function(){
+    window.onload = function(){
 			"use strict";
-			var cardRadios = document.querySelectorAll('.card-radio');
 			var cards = document.querySelectorAll('.card');
-			var closeBtn = document.querySelector('.close');
-			var burgerBtns = document.querySelectorAll('.burger');
-			
-			cardRadios.forEach(function(cardRadio, index, cardRadioList){
-				cardRadio.addEventListener('click', function(){
-					var cardId = this.id;
-
-					closeBtn.setAttribute('for', cardId);
+      var closeBtn = document.querySelector('.close');
+      var burgerBtns = document.querySelectorAll('.burger');
+			var activeCard;
+      cards.forEach(function(card, index, cardList){
+        card.addEventListener('click', function(){
+					closeBtn.setAttribute('data-for', this.id);
 					closeBtn.classList.add('slide-down');
-					
-					for(var i = 0; i < index; i++){
-						var prevRadios = cardRadioList[i];
-						var prevCards = prevRadios.parentElement.lastElementChild;
+          card.classList.add('active');
+          for(var i = 0; i < index; i++){
+						var prevCards = cardList[i];
 						prevCards.classList.add('slide-top');
 					}
-
-					for(var i = 1; i < cardRadioList.length - index; i++){
-						var nextRadios = cardRadioList[index + i];
-						var nextCards = nextRadios.parentElement.lastElementChild;
+					for(var i = 1; i < cardList.length - index; i++){
+						var nextCards = cardList[index + i];
 						nextCards.classList.add('slide-right');
 					}
-
 				}, false);
 			});
 
 			burgerBtns.forEach(function(burgerBtn){
 				burgerBtn.addEventListener('click', function(){
-					closeBtn.classList.remove('slide-down');
-
-					cards.forEach(function(card){
-						card.classList.remove('slide-right', 'slide-top');
-					});
+          event.stopPropagation();
+          closeBtn.classList.remove('slide-down');
+          cards.forEach(function(card){
+            card.classList.remove('active','slide-right', 'slide-top');
+          });
 				}, false);
 			});
+      
+      closeBtn.addEventListener('click', function(){
+        var target = '#' + this.getAttribute('data-for');
+        document.querySelector(target).click();
+      }, false);
+
 		}
 	</script>
 </head>
 <body>
 	<div class="card-wrap">
-		<label class="close slide-down" for="yellow">
+		<div class="close" data-for="yellow">
 			<div class="bar"></div>
-			<div class="bar"></div>
-		</label>
-		<label>
-			<input type="radio" name="card" id="purple" class="card-radio">
-			<div class="card card-purple slide-top">
-				<label class="burger">
-					<input type="radio" name="card">
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-				</label>
-				<h2>Contact</h2>
-			</div>
-		</label>
-		<label>
-			<input type="radio" name="card" id="red" class="card-radio">
-			<div class="card card-red slide-top">
-				<label class="burger">
-					<input type="radio" name="card">
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-				</label>
-				<h2>About</h2>
-			</div>
-		</label>
-		<label>
-			<input type="radio" name="card" id="orange" class="card-radio">
-			<div class="card card-orange slide-top">
-				<label class="burger">
-					<input type="radio" name="card">
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-				</label>
-				<h2>Team</h2>
-			</div>
-		</label>
-		<label>
-			<input type="radio" name="card" id="yellow" class="card-radio" checked>
-			<div class="card card-yellow">
-				<label class="burger">
-					<input type="radio" name="card">
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-				</label>
-				<h2>Projects</h2>
-			</div>
-		</label>
+      <div class="bar"></div>
+    </div>
+    <div class="card card-purple" id="purple">
+      <div class="burger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <h2>Contact</h2>
+    </div>
+    <div class="card card-red" id="red">
+      <div class="burger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <h2>About</h2>
+    </div>
+    <div class="card card-orange" id="orange">
+      <div class="burger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <h2>Team</h2>
+    </div>
+    <div class="card card-yellow" id="yellow">
+      <div class="burger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <h2>Projects</h2>
+    </div>
 	</div>
 	
 </body>

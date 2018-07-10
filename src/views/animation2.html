@@ -19,10 +19,18 @@
 
 					closeBtn.setAttribute('for', cardId);
 					closeBtn.classList.add('slide-down');
+					
+					for(var i = 0; i < index; i++){
+						var prevRadios = cardRadioList[i];
+						var prevCards = prevRadios.parentElement.lastElementChild;
+						prevCards.classList.add('slide-top');
+					}
 
-          var activeLabel = this.parentElement;
-
-          activeLabel.classList.add('active');
+					for(var i = 1; i < cardRadioList.length - index; i++){
+						var nextRadios = cardRadioList[index + i];
+						var nextCards = nextRadios.parentElement.lastElementChild;
+						nextCards.classList.add('slide-right');
+					}
 
 				}, false);
 			});
@@ -32,9 +40,13 @@
 					closeBtn.classList.remove('slide-down');
 
 					cards.forEach(function(card){
-						card.parentElement.classList.remove('active');
+						card.classList.remove('slide-right', 'slide-top');
 					});
 				}, false);
+			});
+
+			closeBtn.addEventListener('click', function(){
+				
 			});
 		}
 	</script>
@@ -47,7 +59,7 @@
 		</label>
 		<label>
 			<input type="radio" name="card" id="purple" class="card-radio">
-			<div class="card card-purple">
+			<div class="card card-purple slide-top">
 				<label class="burger">
 					<input type="radio" name="card">
 					<div class="bar"></div>
@@ -59,7 +71,7 @@
 		</label>
 		<label>
 			<input type="radio" name="card" id="red" class="card-radio">
-			<div class="card card-red">
+			<div class="card card-red slide-top">
 				<label class="burger">
 					<input type="radio" name="card">
 					<div class="bar"></div>
@@ -71,7 +83,7 @@
 		</label>
 		<label>
 			<input type="radio" name="card" id="orange" class="card-radio">
-			<div class="card card-orange">
+			<div class="card card-orange slide-top">
 				<label class="burger">
 					<input type="radio" name="card">
 					<div class="bar"></div>

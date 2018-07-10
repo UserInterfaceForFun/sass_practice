@@ -41,15 +41,17 @@ $card-transition: .3s ease-in-out;
   }
   &.slide-top{
     top:0;
-    left:0
+    left:0;
   }
   h2{
     text-transform: uppercase; 
     display: inline-block;
     margin:0;
     vertical-align: middle;
+    margin-left:-20px;
+    transition: $card-transition;
   }
-  &-purple, input:checked + &-purple{
+  &-purple, input:checked + &-purple, &-purple.active{
     background: $c--purple;
     top:$card-top;
     left:$card-left;
@@ -60,7 +62,7 @@ $card-transition: .3s ease-in-out;
       color:$c--orange;
     }
   }
-  &-red, input:checked + &-red{
+  &-red, input:checked + &-red, &-red.active{
     background: $c--red;
     top:$card-top * 2;
     left:$card-left * 2;
@@ -71,7 +73,7 @@ $card-transition: .3s ease-in-out;
       color:$c--yellow;
     }
   }
-  &-orange, input:checked + &-orange{
+  &-orange, input:checked + &-orange, &-orange.active{
     background: $c--orange;
     top:$card-top * 3;
     left:$card-left * 3;
@@ -82,7 +84,7 @@ $card-transition: .3s ease-in-out;
       color:$c--purple;
     }
   }
-  &-yellow, input:checked + &-yellow{
+  &-yellow, input:checked + &-yellow, &-yellow.active{
     background: $c--yellow;
     top:$card-top * 4;
     left:$card-left * 4;
@@ -100,6 +102,7 @@ input[type=radio]{
 input:checked{
   & + .card .burger{
     display: inline-block;
+    opacity: 1;
   }
   &  + .card {
     cursor: default;
@@ -113,10 +116,13 @@ input:checked{
 }
 .burger{
   width:30px;
-  display: none;
+  display: inline-block;
   vertical-align: middle;
   margin-right:20px;
+  margin-left:-20px;
   cursor: pointer;
+  opacity: 0;
+  transition: $card-transition;
   .bar{
     margin-bottom:6px;
   }
@@ -147,6 +153,16 @@ input:checked{
   }
 }
 
-label.active ~ label .card{
-    left:100%;
+// New card style
+.card.active{
+  top:0;
+  left:0;
+  cursor: default;
+  .burger{
+    opacity: 1;
+    margin-left:0;
+  }
+  h2{
+    margin-left: 0;
+  }
 }
