@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Cards Menu Concept</title>
+	<link rel="stylesheet" href="css/cards.css">
+</head>
+<body>
+	<main class="main">
+		<div class="card-group">
+			<div class="btn btn--close is-active">
+				<div class="line"></div>
+				<div class="line"></div>
+			</div>
+			<figure class="card">
+				<h2 class="title">CONTACT</h2>
+				<div class="btn btn--burger">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+			</figure>
+			<figure class="card">
+				<h2 class="title">ABOUT</h2>
+				<div class="btn btn--burger">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+			</figure>
+			<figure class="card">
+				<h2 class="title">TEAM</h2>
+				<div class="btn btn--burger">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+			</figure>
+			<figure class="card">
+				<h2 class="title">PROJECT</h2>
+				<div class="btn btn--burger">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+			</figure>
+		</div>
+	</main>
+	<script>
+		var closeBtn = document.querySelector('.btn--close');
+		var cardGroup = document.querySelector('.card-group');
+		var titles = document.querySelectorAll('.card .title');
+		var currentCard = document.querySelector('.card');
+
+		function toggleClass() {
+			currentCard.classList.toggle('is-active');
+			cardGroup.classList.toggle('is-active');
+			closeBtn.classList.toggle('is-active');
+		}
+
+		titles.forEach(function(title) {
+			title.addEventListener('click', function() {
+				currentCard = this.parentNode;
+				toggleClass();
+			});
+		});
+		closeBtn.addEventListener('click', function() {
+			toggleClass();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+@import 'vendor/normalize.css/normalize';
+@import 'mixin/breakpoint';
+
+$c--dark-blue: #1B192D;
+$c--blue: #8AA4BB;
+$c--grey: #CFDBEC;
+$c--purple: #553860;
+$c--red: #A5435D;
+$c--orange: #F18264;
+$c--yellow: #FBE280;
+
+$card-map: (
+  (
+    color: $c--orange,
+    background: $c--purple,
+  ),
+  (
+    color: $c--yellow,
+    background: $c--red,
+  ),
+  (
+    color: $c--purple,
+    background: $c--orange,
+  ),
+  (
+    color: $c--red,
+    background: $c--yellow,
+  ),
+);
+
+$c--bg: $c--dark-blue;
+$c--card-base: $c--grey;
+$c--close: $c--blue;
+
+$w: 320px;
+$h: 568px;
+
+$bdr: 15px;
+
+$pos-unit: 11px;
+
+$time-ease: .3s ease-in-out;
+
+// layout
+*,*:after,*:before {
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  background: $c--bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  position: absolute;
+  width: $w;
+  height: $h;
+  border-radius: $bdr;
+  background: $c--card-base;
+}
+
+.card-group {
+  width: $w;
+  height: $h;
+  border-radius: $bdr;
+  overflow: hidden;
+  position: relative;
+  &.is-active {
+    .card {
+      transform: translate(0);
+    }
+  }
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: $bdr;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: $time-ease;
+  .title {
+    position: absolute;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1.5rem 1rem;
+    transition: $time-ease;
+    cursor: pointer;
+  }
+  @each $card in $card-map {
+    $i: index($card-map, $card);
+    &:nth-of-type(#{$i}) {
+      color: map-get($card, color);
+      background: map-get($card, background);
+      transform: translate($pos-unit * $i * 2, $pos-unit * $i * 6);
+      z-index: $i;
+    }
+  }
+  &.is-active {
+    transform: translate(0);
+    .title {
+      padding-left: 3.6rem;
+    }
+    .btn--burger {
+      opacity: 1;
+      transform: scale(1);
+    }
+    ~ .card {
+      transform: translateX(100%);
+      @each $card in $card-map {
+        $i: index($card-map, $card);
+        &:nth-of-type(#{$i}) {
+          transform: translate(100%, $pos-unit * $i * 6);
+        }
+      }
+    }
+  }
+}
+
+// components
+.btn {
+  @mixin line-setting($color: currentcolor) {
+    position: absolute;
+    width: 22px;
+    height: 3px;
+    background: $color;
+    border-radius: 10px;
+  }
+  &--close {
+    position: absolute;
+    padding: 22px 25px;
+    top: 11px;
+    width: 80px;
+    transition: $time-ease;
+    cursor: pointer;
+    transform: rotate(90deg) translateX(50%);
+    >.line {
+      @include line-setting($c--close);
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      &:nth-child(2) {
+        transform: rotate(-45deg);
+      }
+    }
+    &.is-active {
+      transform: none;
+    }
+  }
+  &--burger {
+    position: relative;
+    padding: 24px;
+    top: 11px;
+    width: 80px;
+    opacity: 0;
+    transition: $time-ease;
+    transform: scale(.5);
+    pointer-events: none;
+    >.line {
+      @include line-setting;
+      &:nth-child(1) {
+        top: 15px;
+      }
+      &:nth-child(2) {
+        top: 22px;
+      }
+      &:nth-child(3) {
+        top: 29px;
+      }
+    }
+  }
+}
+
+// TODO：點擊卡片時顏色回饋
