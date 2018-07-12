@@ -51,7 +51,7 @@
 		var closeBtn = document.querySelector('.btn--close');
 		var cardGroup = document.querySelector('.card-group');
 		var titles = document.querySelectorAll('.card .title');
-		var currentCard = document.querySelector('.card');
+		var currentCard = document.querySelector('.card'); // default: first .card
 
 		function toggleClass() {
 			currentCard.classList.toggle('is-active');
@@ -59,15 +59,21 @@
 			closeBtn.classList.toggle('is-active');
 		}
 
+		function flashOut(card, time = 100) {
+			card.classList.add('is-flashing');
+			setTimeout(function() {
+				card.classList.remove('is-flashing');
+			}, time);
+		}
+
 		titles.forEach(function(title) {
 			title.addEventListener('click', function() {
 				currentCard = this.parentNode;
+				flashOut(currentCard);
 				toggleClass();
 			});
 		});
-		closeBtn.addEventListener('click', function() {
-			toggleClass();
-		});
+		closeBtn.addEventListener('click', toggleClass);
 	</script>
 </body>
 </html>

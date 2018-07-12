@@ -91,7 +91,7 @@ figure {
   position: absolute;
   left: 0;
   top: 0;
-  transition: $time-ease;
+  transition: $time-ease, background .2s;
   .title {
     position: absolute;
     font-weight: bold;
@@ -99,6 +99,9 @@ figure {
     padding: 1.5rem 1rem;
     transition: $time-ease;
     cursor: pointer;
+  }
+  &.is-flashing {
+    animation: flash 32ms;
   }
   @each $card in $card-map {
     $i: index($card-map, $card);
@@ -184,4 +187,8 @@ figure {
   }
 }
 
-// TODO：點擊卡片時顏色回饋
+@keyframes flash {
+  to {
+    background: $c-grey;
+  }
+}
