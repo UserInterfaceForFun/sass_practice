@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Toggle Button</title>
+	<link rel="stylesheet" href="css/toggle.css">
+</head>
+<body>
+	<p class="inspired">Inspired by <a href="https://uimovement.com/ui/5243/toggle/" target="_blank" rel="noopener">daryl</a> and <a href="https://codepen.io/ederdiaz/pen/JLbKRa?editors=1100" target="_blank" rel="noopener">Eder Díaz</a></p>
+	<div class="form-group switch">
+		<label for="something">
+			<span class="title">Click Me</span>
+		</label>
+		<input type="checkbox" id="something" class="is-hide">
+		<div id="smiley" class="smiley-switch">
+			<div id="smileyBg" class="smiley-switch__bg"></div>
+			<div id="smileyBall" class="smiley-switch__ball">
+				<div id="smileyFaces" class="smiley-switch__ball__faces-container">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="happy-face" viewBox="0 0 59 51"><g><g><g transform="translate(1337 -940)"><use fill="#8A8B8A" transform="translate(-1337 940)" xlink:href="#path0_fill"/></g><g transform="translate(1337 -940)"><use fill="#8A8B8A" transform="translate(-1290 940)" xlink:href="#path0_fill"/></g><g filter="url(#filter0_i)" transform="translate(1337 -940)"><use fill="#C4C4C4" transform="translate(-1337 971)" xlink:href="#path1_fill"/></g></g></g><defs><filter id="filter0_i" width="63" height="24" x="-1337" y="971" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"/><feOffset dx="4" dy="4"/><feGaussianBlur stdDeviation="6"/><feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend in2="shape" result="effect1_innerShadow"/></filter><path id="path0_fill" d="M12 6A6 6 0 1 1 0 6a6 6 0 0 1 12 0z"/><path id="path1_fill" d="M0 2.2C0 1 1 0 2.2 0h54.6C58 0 59 1 59 2.2 59 12 51 20 41.2 20H17.8C8 20 0 12 0 2.2z"/></defs></svg>
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="sleepy-face" viewBox="0 0 51 30"><g fill="#8A8B8A"><g transform="translate(.6 .8)"><use xlink:href="#sleepy_path0_fill"/><use xlink:href="#sleepy_path1_stroke"/></g><g transform="translate(35 1)"><use xlink:href="#sleepy_path0_fill"/><use xlink:href="#sleepy_path1_stroke"/></g><g transform="translate(17.5 23.5)"><use xlink:href="#sleepy_path2_fill"/><use xlink:href="#sleepy_path3_stroke"/></g></g><defs><path id="sleepy_path0_fill" d="M12.4 4.7c-5.5 4-10.1.2-12-2C-.6.7 0-.5 4 .7c5 1.5 6 .5 8.5-.5s4 1.7 0 4.5z"/><path id="sleepy_path1_stroke" d="M.4 2.7L0 3V3l.4-.3zm12 2l.3.4-.3-.4zm0-4.5l-.1-.5.1.5zM4 .7l.2-.5-.2.5zM.1 3c1 1.2 2.6 2.7 4.8 3.5 2.2.8 5 .7 7.8-1.4l-.6-.8c-2.6 2-5 2-6.9 1.3-2-.7-3.5-2.2-4.4-3.2L.1 3zm12.6 2.1c1-.7 1.7-1.5 2.2-2.2.4-.7.5-1.4.4-2 0-.6-.5-1-1-1.3-.7-.2-1.3-.1-2 .1l.3 1c.6-.2 1-.2 1.3-.1.2 0 .4.3.4.5.1.3 0 .8-.3 1.3-.3.6-1 1.2-1.9 2l.6.7zm-.4-5.4C10.9.3 10.2.7 9 1 8 1.1 6.6 1 4 .2l-.3 1c2.5.8 4.1.9 5.4.7 1.3-.2 2.3-.8 3.4-1.2l-.3-1zM4 .2L1.6-.3C.9-.3.4-.2 0 .1c-.4.4-.5.8-.5 1.3s.2 1 .5 1.5l.9-.4-.4-1.2.1-.4c.1 0 .4-.2 1-.2.5 0 1.2.2 2.2.5l.3-1z"/><path id="sleepy_path2_fill" d="M.6 3c-2-2.8 1.5-3 4-3 .1.2 1 0 4 0 3.5 0 2 3.5 0 4.5S2.6 6 .6 3z"/><path id="sleepy_path3_stroke" d="M4.6 0l.3-.4-.1-.1h-.2V0zm-4 3l.4-.3-.4.3zm8-3v-.5.5zm-4-.5h-2c-.7.1-1.4.2-1.9.5C.2.2-.3.6-.5 1.2c-.1.6.1 1.3.6 2l.9-.5c-.5-.6-.5-1-.5-1.3 0-.2.2-.3.6-.5.4-.2 1-.3 1.6-.3L4.6.5v-1zM0 3.3a5.6 5.6 0 0 0 4.4 2.4c1.6.2 3.2-.2 4.3-.8l-.5-.8c-.9.4-2.3.8-3.7.7a4.6 4.6 0 0 1-3.6-2l-.9.5zm8.7 1.6A4.6 4.6 0 0 0 11 2a2 2 0 0 0-.4-1.7c-.5-.5-1.2-.7-2.1-.7v1c.8 0 1.2.2 1.4.4.1.2.2.5.1.9 0 .4-.3.8-.6 1.3-.3.4-.7.7-1.2 1l.5.8zM8.6-.5H4.8l.1.1-.7.8.3.1h4v-1z"/></defs></svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		const smiley = document.querySelector('#smiley');
+		const smileyBg = smiley.querySelector('#smileyBg')
+		const smileyBall = smiley.querySelector('#smileyBall');
+		const smileyFaces = smiley.querySelector('#smileyFaces');
+		const label = document.querySelector('label[for="something"]');
+		const input = document.querySelector('#something');
+		function toggleCheckbox(el) {
+			el.checked = !el.checked;
+		}
+		function toggleSmiley() {
+			smileyBg.classList.toggle('is-active');
+			smileyBall.classList.toggle('is-active');
+			smileyFaces.classList.toggle('is-active');
+		}
+		label.addEventListener('click', toggleCheckbox);
+		smiley.addEventListener('click', toggleSmiley);
+		input.addEventListener('change', toggleSmiley);
+	</script>
+</body>
+</html>

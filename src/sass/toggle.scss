@@ -1,0 +1,101 @@
+@import 'vendor/normalize.css/normalize';
+@import 'mixin/breakpoint';
+
+$c-primary: hsl(0deg, 15%, 30%);
+$c-text: hsl(0deg, 30%, 10%);
+$t-default: .5s ease-in-out;
+$w-face: 25px;
+
+html,body {
+  background: transparentize($c-primary, .8);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  color: inherit;
+}
+
+label {
+  color: $c-text;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  > .title {
+    padding-right: 20px;
+  }
+}
+
+.inspired {
+  color: $c-text;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 1rem;
+}
+
+.is-hide {
+  display: none;
+}
+
+.happy-face {
+  position: absolute;
+  top: 15px;
+  left: -120px;
+  width: $w-face;
+}
+
+.sleepy-face {
+  position: absolute;
+  top: 25px;
+  left: 5px;
+  width: $w-face;
+}
+
+.smiley-switch {
+  position: relative;
+  cursor: pointer;
+  &__bg {
+    width: 100px;
+    height: 55px;
+    left: 0;
+    top: 0;
+    background: lighten($c-primary, 20%);
+    border-radius: 30px;
+    box-shadow: 1px 2px 5px #000 inset;
+    position: absolute;
+    transition: $t-default;
+    &.is-active {
+      background: saturate(lighten($c-primary, 40%), 50%);
+    }
+  }
+  &__ball {
+    position: relative;
+    overflow: hidden;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    transform: translate(0, 2px);
+    transition: $t-default;
+    box-shadow: 1px 2px 2px #333;
+    background: radial-gradient(farthest-corner at 10px 10px, lighten($c-primary, 90%) 0, lighten($c-primary, 30%) 80%);
+    &.is-active {
+      background: radial-gradient(farthest-corner at 10px 10px, saturate(lighten($c-primary, 90%), 25%) 0, saturate(lighten($c-primary, 30%), 25%) 80%);
+      transform: translate(50px, 2px);
+    }
+    &__faces-container {
+      position: absolute;
+      transition: $t-default;
+      transform: translateX(0);
+      &.is-active {
+        transform: translateX(140px);
+      }
+    }
+  }
+}
