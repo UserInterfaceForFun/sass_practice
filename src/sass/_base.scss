@@ -1,4 +1,4 @@
-body{
+.payment{
 	background-color: #E8E9EB;	
 	letter-spacing: 2px;
 	padding: 85px 0 120px;
@@ -55,56 +55,56 @@ body{
 	.right-brd{
 		border-right: 1px solid #eee;
 	}
-}
-.navbar{
-	padding: 25px;
-}
-.cc-bg{
-	left: calc(50% - 574px);
-	top: 160px;
-}
-.info{
-	border: solid 1px #C7C8CA;
-	padding: 10% 5%;
-	h3{
-		font-weight: lighter;
+	.navbar{
+		padding: 25px;
 	}
-	.profile-pic{
-		display: inline-block;
-		width: 56px;
-		height: 56px;
-		border-radius: 50%;
-		border: solid 4px #ffffff;
-		margin-right:15px; 
+	.cc-bg{
+		left: calc(50% - 574px);
+		top: 160px;
 	}
-}
-#btm-nav{
-	padding: 0;
-	background-color: #fff;
-	height: 120px;
-	border-left: solid 7px #9C5858;
-	box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
-	.title{
-		margin-top: -10%;
+	.info{
+		border: solid 1px #C7C8CA;
+		padding: 10% 5%;
+		h3{
+			font-weight: lighter;
+		}
+		.profile-pic{
+			display: inline-block;
+			width: 56px;
+			height: 56px;
+			border-radius: 50%;
+			border: solid 4px #ffffff;
+			margin-right:15px; 
+		}
 	}
-	.subtitle{
-		font-size: 10px
-	}
-	.content{
-		position: relative;
-		font-size: 18px;
-		padding: 15px 0;
-	}
-	.payment{
-		position: absolute;
-		right:15px;
-		top: calc(50% - 12.5px);
-		width: 40px;
-		text-align:right;
-	}
-	.p-btn{
-		margin-top: -1px;
-		padding: 52px 0;
-		background-color: #4B442F;
+	#btm-nav{
+		padding: 0;
+		background-color: #fff;
+		height: 120px;
+		border-left: solid 7px #9C5858;
+		box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+		.title{
+			margin-top: -10%;
+		}
+		.subtitle{
+			font-size: 10px
+		}
+		.content{
+			position: relative;
+			font-size: 18px;
+			padding: 15px 0;
+		}
+		.visa{
+			position: absolute;
+			right:15px;
+			top: calc(50% - 12.5px);
+			width: 40px;
+			text-align:right;
+		}
+		.p-btn{
+			margin-top: -1px;
+			padding: 52px 0;
+			background-color: #4B442F;
+		}
 	}
 }

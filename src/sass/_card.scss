@@ -1,0 +1,50 @@
+body{
+	.mask-bg{
+		background-color: #1C182F;
+	}
+	.mask{
+		overflow:hidden;
+		margin: calc( 25% - 308.5px) calc( 50% - 180px);
+		border-radius: 10px;
+		position: relative;
+		width: 360px;
+		height: 617px;
+		font-weight:700;
+	}
+	.card{
+		width: 360px;
+		height: 617px;
+		padding: 20px;
+		border-radius: 10px;
+		position: absolute;
+	}
+	.cd-blue{
+		background-color: rgba( 205, 219, 238, 1);
+		top:0;
+		left:0;
+	}
+	.cd-prpl{
+		background-color: rgba( 86, 55, 97, 1);
+		color: rgba( 243, 130, 95, 1);
+		top:75px;
+		left:25px;
+	}
+	.cd-red{
+		background-color: rgba( 167, 66, 92, 1);
+		color: rgba( 255, 226, 111, 1);
+		top:150px;
+		left:50px;
+	}
+	.cd-org{
+		background-color: rgba( 243, 130, 95, 1);
+		color: rgba( 86, 55, 97, 1);
+		top:225px;
+		left:75px;
+	}
+	.cd-ylw{
+		background-color: rgba( 255, 226, 111, 1);
+		color: rgba( 167, 66, 92, 1);
+		top:300px;
+		left:100px;
+	}
+}

@@ -2,9 +2,20 @@ doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
-    title Sample page
+    title Card Transition
     link(rel="stylesheet", href="css/main.css")
-  body
-    h1 hello world!
     script(src="js/main.js")
-
+    
+  body
+    div(class="mask-bg")
+      div(class="mask")
+        div(class="card cd-blue")
+            img(src="assets/img/icon/ic_cancel.svg")
+        div(class="card cd-prpl")
+            p CONTACT
+        div(class="card cd-red")
+            p ABOUT
+        div(class="card cd-org")
+            p TEAM
+        div(class="card cd-ylw")
+            p PROJECTS
