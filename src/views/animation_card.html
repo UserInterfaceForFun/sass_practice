@@ -3,27 +3,46 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Animation Card</title>
-	<link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/vendor/bootstrap4/bootstrap.css">
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			$('.card').on('click',function(){
+                $('.card').toggleClass('transform');
+                $(this).toggleClass('appear')
+                $(this).siblings('.btn-close').toggleClass('transform');
+            });
+			
+		})
+	</script>
 </head>
 <body>
     <div class="card-bg">
         <div class="card-outer">
-            <a href="">
+            <a class="btn-close" href="javascript:;">
                 <img src="assets/img/close.png" alt="">
             </a>
             <div class="card card-purple">
-                <div class="title title-orange">CONTACT</div>
+                <div class="title title-orange">
+                    <i class="fas fa-bars"></i>CONTACT
+                </div>
             </div>
             <div class="card card-red">
-                <div class="title title-yellow">ABOUT</div>
+                <div class="title title-yellow">
+                    <i class="fas fa-bars"></i>ABOUT
+                </div>
             </div>
             <div class="card card-orange">
-                <div class="title title-red">TEAM</div>
+                <div class="title title-red">
+                    <i class="fas fa-bars"></i>TEAM
+                </div>
             </div>
             <div class="card card-yellow">
-                <p class="title title-orange">Project</p>
+                <div class="title title-orange">
+                    <i class="fas fa-bars"></i>PROJECT
+                </div>
             </div>
         </div>
     </div>

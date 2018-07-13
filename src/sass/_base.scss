@@ -1,17 +1,8 @@
-
-$light-grey:#999;
-$grey:#666;
-$dark:#333;
-$primary:#26bec9;
-$text-sm:13px;
-$text-lg:20px;
-$text-600:600;
 body{
 	font-family:'Helvetica';
 }
 a:hover, a:focus{
 	text-decoration: none !important;
-	color:$light-grey !important;
 }
 .bg-setting{
 	width:100%;
@@ -40,7 +31,7 @@ header{
 	}
 	a{
 		font-size:20px;
-		color:$grey;
+		color:$color-grey;
 		transition: 0.3s;
 	}
 }
@@ -55,13 +46,13 @@ header{
 		position: relative;
 	}
 	.left-content{
-		color:$grey;
+		color:$color-grey;
 		margin:80px 0;
 		padding:30px;
 		border:1px solid #eaeaea;
 		text-align:center;
 		.name{
-		color:$grey;
+		color:$color-grey;
 		font-size:20px;
 		line-height:20px;
 			img{
@@ -87,7 +78,7 @@ header{
 }
 .payment-title{
 	padding:10px 20px;
-	color:$light-grey;
+	color:$color-light-grey;
 	text-transform: uppercase;
 	font-size: 14px;
 }
@@ -103,7 +94,7 @@ header{
 			width:calc(100% - 50px);
 			float: left;
 			p{
-				color:$light-grey;
+				color:$color-light-grey;
 			}
 			h4{
 				font-size: $text-lg;
@@ -122,17 +113,17 @@ header{
 		select{
 			border:none;
 			appearance: none;
-			color:$light-grey;
+			color:$color-light-grey;
 			font-size: $text-sm;
 		}
 		p{
 			margin-top:10px;
 			font-size: 20px;
 			letter-spacing: 2px;
-			color:$dark;
+			color:$color-dark;
 		}
 		label{
-			color:$light-grey;
+			color:$color-light-grey;
 			font-size: $text-sm;
 		}
 		input{
@@ -141,11 +132,11 @@ header{
 			text-align: center;
 			margin-top:10px;
 			font-size: $text-lg;
-			color:$dark;
+			color:$color-dark;
 		}
 	}
 	.cta-btn{
-		background-color:$primary;
+		background-color:$color-primary;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -160,16 +151,11 @@ header{
 
 //Animation Card Start
 
-$red:#a7425c;
-$purple:#563761;
-$orange:#f3825f;
-$yellow:#ffe26f;
-
 .card-bg{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color:#333;
+	background-color:$color-dark;
 	padding:50px;
 }
 .card-outer{
@@ -180,50 +166,78 @@ $yellow:#ffe26f;
 	overflow: hidden;
 	position: relative;
 	padding:30px;
-	img{
+	.btn-close img{
 		width:25px;
 		height:25px;
+		transition: 0.2s;
+	}
+	.btn-close.transform img{
+		margin-top:20px;
+		margin-left:10px;
+		transform: rotate(30deg);
 	}
 	.card{
 		height:600px;
 		width:400px;
 		border-radius: 10px;
-		border-color:none;
+		border-color:transparent;
 		position: absolute;
 		padding:20px;
+		transition:0.4s;
 		.title{
 			font-size: $text-lg;
 			font-weight:500;
+			transition: 0.2s;
+			&:hover{
+				color:rgba(255,255,255,0.5);
+			}
+			i{
+				font-size:22px;
+				margin-right:10px;
+				display: none;
+			}
 		}
 		.title-orange{
-			color:$orange;
+			color:$color-orange;
 		}
 		.title-red{
-			color:$red;
+			color:$color-red;
 		}
 		.title-yellow{
-			color:$yellow;
+			color:$color-yellow;
 		}
 	}
 	.card-purple{
-		background-color:$purple;
+		background-color:$color-purple;
 		left:30px;
 		top:80px;
 	}
 	.card-red{
-		background-color: $red;
+		background-color: $color-red;
 		left:60px;
-		top:150px;
+		top:140px;
 	}
 	.card-orange{
-		background-color: $orange;
-		left:100px;
-		top:220px;
+		background-color: $color-orange;
+		left:90px;
+		top:200px;
 	}
 	.card-yellow{
-		background-color: $yellow;
-		left:140px;
-		top:290px;
+		background-color: $color-yellow;
+		left:120px;
+		top:260px;
+	}
+	.card.transform{
+		left:100%;
+		opacity: 0;
+	}
+	.card.appear{
+		left:0;
+		top:0;
+		opacity: 1;
+		.title i{
+			display: inline-block;
+		}
 	}
 }
 
