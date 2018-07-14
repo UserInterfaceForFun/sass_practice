@@ -1,9 +1,24 @@
 $color--purple: rgba( 86, 55, 97, 1);
 $color--red: rgba( 167, 66, 92, 1);
+$color--darkred: rgba( 156, 88, 88, 1);
 $color--orange: rgba( 243, 130, 95, 1);
 $color--yellow: rgba( 255, 226, 111, 1);
 $color--lihgtblue: rgba( 205, 219, 238, 1);
 $color--white: rgba( 255, 255, 255, 1);
+$color--darkppl: rgba( 28, 24, 47, 1);
+$color--lightgray: rgba( 232, 233, 235, 1);
+$color--brown: rgba( 75, 68, 47, 1);
+$color--shadow: rgba( 0, 0, 0, 0.1);
+$color--darkgray: rgba( 151, 151, 151, 1);
 
-$width: 100%;
-$height: 100%;
+@mixin position($top, $left) {
+  top: $top;
+  left: $left;
+}
+
+$card-pos-unit: 25px;
+
+@mixin box($width, $height) {
+  width: $width;
+  height: $height;
+}
