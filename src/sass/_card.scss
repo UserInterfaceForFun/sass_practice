@@ -33,7 +33,7 @@ $card-transition: .3s ease-in-out;
   position: absolute;
   cursor: pointer;
   transition: $card-transition;
-  &:active{
+  &:not(.active):active{
     background-color: #fff;
   }
   &.slide-right{
@@ -51,7 +51,7 @@ $card-transition: .3s ease-in-out;
     margin-left:-20px;
     transition: $card-transition;
   }
-  &-purple, input:checked + &-purple, &-purple.active{
+  &-purple{
     background: $c--purple;
     top:$card-top;
     left:$card-left;
@@ -62,7 +62,7 @@ $card-transition: .3s ease-in-out;
       color:$c--orange;
     }
   }
-  &-red, input:checked + &-red, &-red.active{
+  &-red{
     background: $c--red;
     top:$card-top * 2;
     left:$card-left * 2;
@@ -73,7 +73,7 @@ $card-transition: .3s ease-in-out;
       color:$c--yellow;
     }
   }
-  &-orange, input:checked + &-orange, &-orange.active{
+  &-orange{
     background: $c--orange;
     top:$card-top * 3;
     left:$card-left * 3;
@@ -84,7 +84,7 @@ $card-transition: .3s ease-in-out;
       color:$c--purple;
     }
   }
-  &-yellow, input:checked + &-yellow, &-yellow.active{
+  &-yellow{
     background: $c--yellow;
     top:$card-top * 4;
     left:$card-left * 4;
@@ -96,18 +96,17 @@ $card-transition: .3s ease-in-out;
     }
   }
 }
-input[type=radio]{
-  display: none;  
-}
-input:checked{
-  & + .card .burger{
-    display: inline-block;
+// 做動畫勁量不要用 top, left ，效能比較不好
+.card.active{
+  top:0;
+  left:0;
+  cursor: default;
+  .burger{
     opacity: 1;
+    margin-left:0;
   }
-  &  + .card {
-    cursor: default;
-    top:0;
-    left:0;
+  h2{
+    margin-left: 0;
   }
 }
 .bar{
@@ -150,19 +149,5 @@ input:checked{
   &.slide-down{
     transform: rotateZ(90deg) translateY(15px);
     transform-origin: left bottom;
-  }
-}
-
-// New card style
-.card.active{
-  top:0;
-  left:0;
-  cursor: default;
-  .burger{
-    opacity: 1;
-    margin-left:0;
-  }
-  h2{
-    margin-left: 0;
   }
 }

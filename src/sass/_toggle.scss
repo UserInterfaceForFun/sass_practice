@@ -44,12 +44,12 @@ label.toggle-container{
   }
   &-close{
     background-image: url(../assets/img/close.svg);
-    @include bgSetting($toggle-size * 0.6, left, no-repeat);
+    @include bgSetting($toggle-size * 0.6, left);
     transform-origin: 100%;
   }
   &-open{
     background-image: url(../assets/img/open.svg);
-    @include bgSetting($toggle-size * 0.6, right, no-repeat);
+    @include bgSetting($toggle-size * 0.6, right);
     transform: rotateY(180deg);
     transform-origin: 0%;
   }

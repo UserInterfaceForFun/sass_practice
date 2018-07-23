@@ -5,9 +5,9 @@
 @import 'vendor/bootstrap4/buttons';
 @import 'vendor/bootstrap4/forms';
 @import 'variable';
-@import 'base';
 @import 'font';
 @import 'mixin/breakpoint';
+@import 'base';
 
 body{
   color:$color--grey;
@@ -60,7 +60,7 @@ select.form-control:not([size]):not([multiple]){
 .payment-wrap{
   min-height:100vh;
   padding-bottom:150px;
-  @include bgSetting(cover,center, no-repeat){
+  @include bgSetting(){
     background-image: url(../assets/img/bg.jpg);
   }
   @media(max-width:991px){
@@ -86,7 +86,7 @@ $block-margin:25px;
       box-shadow: 2px 2px 4px rgba(0,0,0,.1);
       vertical-align: middle;
       background-image: $member--default;
-      @include bgSetting(cover, center, no-repeat);
+      @include bgSetting();
     }
     h2{
       display: inline-block;
@@ -192,7 +192,7 @@ $block-margin:25px;
   .form-control{
     padding-right: 80px;
     width:100%;
-    @include bgSetting(contain,center right, no-repeat){
+    @include bgSetting(contain,center right){
       background-image:url('../assets/img/ic_visa.svg');
     };
   }
