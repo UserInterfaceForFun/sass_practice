@@ -15,6 +15,21 @@ $card-left: 20px;
 $card-radius: 10px;
 $card-padding: 20px;
 $card-transition: .3s ease-in-out;
+
+@mixin cardSet($bgColor, $textColor, $offset){
+  background: $bgColor;
+  transform: translateX($card-left * $offset) translateY($card-top * $offset);
+  .bar{
+    background-color: $textColor;
+  }
+  h2{
+    color: $textColor;
+  }
+  &.slide-right{
+    transform: translateX(100%) translateY($card-top * $offset);
+  }
+}
+
 .card-wrap{
   background-color: $c--blue;
   padding: $card-padding;
@@ -31,18 +46,10 @@ $card-transition: .3s ease-in-out;
   padding: $card-padding;
   border-radius: $card-radius;
   position: absolute;
+  top:0;
+  left:0;
   cursor: pointer;
   transition: $card-transition;
-  &:not(.active):active{
-    background-color: #fff;
-  }
-  &.slide-right{
-    left:100%;
-  }
-  &.slide-top{
-    top:0;
-    left:0;
-  }
   h2{
     text-transform: uppercase; 
     display: inline-block;
@@ -51,62 +58,34 @@ $card-transition: .3s ease-in-out;
     margin-left:-20px;
     transition: $card-transition;
   }
-  &-purple{
-    background: $c--purple;
-    top:$card-top;
-    left:$card-left;
-    .bar{
-      background-color: $c--orange;
+  &:not(.active):active{
+    background-color: #fff;
+  }
+  &.active{
+    transform: translateX(0) translateY(0);
+    cursor: default;
+    .burger{
+      opacity: 1;
+      margin-left:0;
     }
     h2{
-      color:$c--orange;
+      margin-left: 0;
     }
+  }
+  &.slide-top{
+    transform: translateX(0) translateY(0);
+  }
+  &-purple{
+    @include cardSet($c--purple, $c--orange, 1);
   }
   &-red{
-    background: $c--red;
-    top:$card-top * 2;
-    left:$card-left * 2;
-    .bar{
-      background-color: $c--yellow;
-    }
-    h2{
-      color:$c--yellow;
-    }
+    @include cardSet($c--red, $c--yellow, 2);
   }
   &-orange{
-    background: $c--orange;
-    top:$card-top * 3;
-    left:$card-left * 3;
-    .bar{
-      background-color: $c--purple;
-    }
-    h2{
-      color:$c--purple;
-    }
+    @include cardSet($c--orange, $c--purple, 3);
   }
   &-yellow{
-    background: $c--yellow;
-    top:$card-top * 4;
-    left:$card-left * 4;
-    .bar{
-      background-color: $c--red;
-    }
-    h2{
-      color:$c--red;
-    }
-  }
-}
-// 做動畫勁量不要用 top, left ，效能比較不好
-.card.active{
-  top:0;
-  left:0;
-  cursor: default;
-  .burger{
-    opacity: 1;
-    margin-left:0;
-  }
-  h2{
-    margin-left: 0;
+    @include cardSet($c--yellow, $c--red, 4);
   }
 }
 .bar{
